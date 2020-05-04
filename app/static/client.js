@@ -17,7 +17,7 @@ function showPicked(input) {
 function analyze() {
   var uploadFiles = el("file-input").files;
   if (uploadFiles.length !== 1) alert("Please select a file to analyze!");
-
+  el("result-wiki").innerHTML = "";
   el("analyze-button").innerHTML = "Analyzing...";
   el("result-label").innerHTML = "";
   var xhr = new XMLHttpRequest();
@@ -30,7 +30,14 @@ function analyze() {
   xhr.onload = function(e) {
     if (this.readyState === 4) {
       var response = JSON.parse(e.target.responseText);
-      el("result-label").innerHTML = `This bird species is ${response["result"]}`;
+      var a = document.createElement('a');
+      var linkText = document.createTextNode(`${response["result"]}`);
+      a.appendChild(linkText);
+      a.title = `${response["result"]}`;
+      a.href = `${response["url"]}`;
+
+      el("result-label").innerHTML = "This bird species is (Click to open Wikipedia article):";
+      el("result-wiki").appendChild(a);
     }
     el("analyze-button").innerHTML = "Analyze";
   };

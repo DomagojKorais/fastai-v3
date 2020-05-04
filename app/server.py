@@ -8,6 +8,7 @@ from starlette.applications import Starlette
 from starlette.middleware.cors import CORSMiddleware
 from starlette.responses import HTMLResponse, JSONResponse
 from starlette.staticfiles import StaticFiles
+import wikipedia
 
 export_file_url = 'https://www.googleapis.com/drive/v3/files/1KhHDCrX0HtIA1Cx7bNJs7utotmu6sg5y?alt=media&key=AIzaSyC5XjgwohRcXHOr9tv84KCb-DQugVdUPaU'
 export_file_name = 'italian_birds_resnet34_fine_tuned'
@@ -60,8 +61,9 @@ async def analyze(request):
     img_data = await request.form()
     img_bytes = await (img_data['file'].read())
     img = open_image(BytesIO(img_bytes))
-    prediction = learn.predict(img)[0]
-    return JSONResponse({'result': str(prediction).replace("_", " ").title()})
+    prediction = str(learn.predict(img)[0]).replace("_", " ").title()
+    page = wikipedia.page(prediction)
+    return JSONResponse({'result': prediction,'url':page.url })
 
 
 if __name__ == '__main__':

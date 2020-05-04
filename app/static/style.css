@@ -44,6 +44,12 @@ body {
     color: #ffffff;
 }
 
+.result-wiki {
+    font-size: 23px;
+    background-color:#ffffff;
+    display:inline;
+}
+
 button.choose-file-button {
     width: 200px;
     height: 40px;
