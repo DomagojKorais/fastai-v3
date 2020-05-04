@@ -9,10 +9,11 @@ from starlette.middleware.cors import CORSMiddleware
 from starlette.responses import HTMLResponse, JSONResponse
 from starlette.staticfiles import StaticFiles
 
-export_file_url = 'https://www.dropbox.com/s/6bgq8t6yextloqp/export.pkl?raw=1'
-export_file_name = 'export.pkl'
+export_file_url = 'https://www.googleapis.com/drive/v3/files/1KhHDCrX0HtIA1Cx7bNJs7utotmu6sg5y?alt=media&key=AIzaSyC5XjgwohRcXHOr9tv84KCb-DQugVdUPaU'
+export_file_name = 'italian_birds_resnet34_fine_tuned'
 
-classes = ['black', 'grizzly', 'teddys']
+classes = ['accipiter_nisus', 'actitis_hypoleucos', 'aegithalos_caudatus', 'alcedo_atthis', 'anas_clypeata', 'anas_crecca', 'anas_platyrhynchos', 'aquila_chrysaetos', 'ardea_alba', 'ardea_cinerea', 'ardea_purpurea', 'ardeola_ralloides', 'arenaria_interpres', 'asio_flammeus', 'asio_otus', 'athene_noctua', 'aythya_ferina', 'botaurus_stellaris', 'bubulcus_ibis', 'buteo_buteo', 'calidris_alpina', 'carduelis_carduelis', 'carduelis_chloris', 'carduelis_spinus', 'charadrius_dubius', 'charadrius_morinellus', 'ciconia_ciconia', 'cinclus_cinclus', 'circus_aeruginosus', 'circus_pygargus', 'cisticola_juncidis', 'coccothraustes_coccothraustes', 'coracias_garrulus', 'cygnus_olor', 'dendrocopos_major', 'egretta_garzetta', 'emberiza_schoeniclus', 'erithacus_rubecula', 'falco_naumanni', 'falco_peregrinus', 'falco_tinnunculus', 'falco_vespertinus', 'fringilla_coelebs', 'fringilla_montifringilla', 'fulica_atra', 'gallinago_gallinago', 'gallinula_chloropus', 'garrulus_glandarius', 'gypaetus_barbatus', 'gyps_fulvus', 'haliaeetus_albicilla', 'himantopus_himantopus', 'hirundo_rustica', 'ixobrychus_minutus', 'jynx_torquilla', 'lagopus_mutus', 'lanius_collurio', 'loxia_curvirostra', 'merops_apiaster', 'milvus_migrans', 'milvus_milvus', 'montifringilla_nivalis', 'motacilla_alba', 'motacilla_cinerea', 'muscicapa_striata', 'nycticorax_nycticorax', 'oenanthe_oenanthe', 'pandion_haliaetus', 'parus_ater', 'parus_caeruleus', 'parus_cristatus', 'parus_major', 'parus_palustris', 'phalacrocorax_carbo', 'philomachus_pugnax', 'phoenicopterus_roseus', 'phoenicurus_ochruros', 'phoenicurus_phoenicurus', 'phylloscopus_collybita', 'picus_viridis', 'platalea_leucorodia', 'plegadis_falcinellus', 'podiceps_cristatus', 'porzana_parva', 'prunella_modularis', 'rallus_aquaticus', 'recurvirostra_avosetta', 'regulus_regulus', 'remiz_pendulinus', 'saxicola_torquata', 'sitta_europaea', 'strix_aluco', 'sylvia_atricapilla', 'sylvia_melanocephala', 'tachybaptus_ruficollis', 'tetrao_tetrix', 'threskiornis_aethiopica', 'tringa_glareola', 'tringa_nebularia', 'troglodytes_troglodytes', 'turdus_merula', 'upupa_epops', 'vanellus_vanellus']
+
 path = Path(__file__).parent
 
 app = Starlette()
